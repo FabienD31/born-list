@@ -13,7 +13,7 @@ const Menu = () => {
     <div className="right-menu">
       <ul className="navbar">
         <Link to="/showContributor"><li><i className="fa-solid fa-table-list"></i></li></Link>
-        <Link to="/addCard"><li><i className="fa-regular fa-square-plus"></i></li></Link>
+        <Link to="/addProduct"><li><i className="fa-regular fa-square-plus"></i></li></Link>
         <li><i className="fa-solid fa-user"></i></li>
       </ul>
     </div>

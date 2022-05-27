@@ -1,0 +1,20 @@
+
+.tableCategory {
+  width: 100%;
+  margin-bottom: 1rem;
+
+}
+#headCategory{
+  color: #5D5179;
+  font-family: roboto;
+  font-size: 3rem;
+
+}
+#bodyCategory{
+  text-align: center;
+
+}
+#btnTable {
+  display: flex;
+  justify-content: space-around;
+}

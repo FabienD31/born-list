@@ -1,0 +1,23 @@
+.btnText {
+  margin: 2rem 0; 
+  padding: 1.5rem 5rem;
+  border-radius: 15px;
+  background-color: #5D5179;
+  color: #B6F9C9;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.btnIcon {
+  margin: 1rem 0; 
+  padding: 1rem 1.5rem;
+  border-radius: 5px;
+  background-color: #4F759B;
+  color: #FAB8B8;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}

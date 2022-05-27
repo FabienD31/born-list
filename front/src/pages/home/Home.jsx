@@ -9,8 +9,8 @@ const Home = () => {
   return (
 <div>
   <div className="productMap">
-    {products.map(product => 
-      <Card name={product.name} image={product.image} price={product.price} link={product.link} />
+    {products.map((product) => 
+      <Card key={product.id} name={product.name} image={product.image} price={product.price} link={product.link} />
     )}
   </div> 
 </div>

@@ -1,25 +1,24 @@
 import React from "react";
 import "./card.css";
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 
-const Card = ({name, image, price, link}) => {
+const Card = (product) => {
   return (
     <div className="card">
-      <h1>{name}</h1>
-      <img src={image} alt="imageCard"/>
-      <a href={link} >Lien du site</a>
-      <p>{price} ( prix indicatif)</p>
-      <button>mettre composent</button>
+      <h2 className="name">{product.name}</h2>
+      <img className="imgCard" src={product.image} alt="imageCard"/>
+      <a className="link" href={product.link} >Aller sur le site</a>
+      <p className="price">{product.price} €<span>( prix indicatif)</span></p>
+      <button className="btnContribution" onClick={()=>{}}>Contribuer</button>
     </div>
   )
 }
-
-// Card.PropTypes = {
-//   name: PropTypes.string.isRequired,
-//   image: PropTypes.string.isRequired,
-//   price: PropTypes.string.isRequired,
-//   link: PropTypes.string.isRequired
-// }
-
 export default Card;
+
+Card.propTypes = {
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  link: PropTypes.string.isRequired
+}

@@ -1,0 +1,31 @@
+.array {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
+}
+
+.infoEmpty {
+  text-align: center;
+  font-size: 4rem;
+}
+
+table {
+  width: 90%;
+}
+
+#head {
+  font-family: roboto;
+  font-size: 3rem;
+  background-color: #4F759B;
+  color: white;
+}
+#body {
+  background-color: #FAC9B8;
+  font-family: roboto;
+  font-size: 27px;
+  text-align: center;
+}
+
+
+

@@ -1,7 +1,7 @@
 .card {
   background-color: #FAC9B8;
-  width: 250px;
-  height: 300px;
+  width: 300px;
+  height: 350px;
   border-radius: 15px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   display: flex;
@@ -15,8 +15,49 @@
  
 }
 
-img {
+.imgCard {
   border-radius: 15px;
   height: 50%;
-  width: 50%;
+  width: 70%;
+}
+
+.price {
+  margin-top: 0.5rem;
+  font-size: 2.3rem;
+  font-weight: bold;
+  color: #4F759B;
+}
+
+.link {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #4F759B;
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #5D5179;
+  text-align: center;
+  width:28rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+span {
+  font-size: 0.8rem;
+  color: black;
+}
+
+.btnContribution {
+  padding: 1rem;
+  border-radius: 15px;
+  background-color: #4F759B;
+  color: #FAB8B8;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
 }
