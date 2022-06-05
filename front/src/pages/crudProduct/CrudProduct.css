@@ -39,13 +39,19 @@ margin: 1rem;
 
 
 .imgUploaded {
-  width: 50%;
-  height: 50%;
+  width: 30%;
+  height: 30%;
 }
 .btnPositionnement {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   
+}
+
+.twoInputLign {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
