@@ -24,7 +24,6 @@ margin: 1rem;
 }
 .inputStyle {
   width: 40%;
-  height: 3vh;
   border-radius: 15px;
   border: none;
   padding: 1rem;
@@ -32,11 +31,14 @@ margin: 1rem;
   margin-bottom: 1rem;
   background-color: #B6F9C9;
 }
+
 .inputStyle::placeholder {  
 	text-align: center; 
   color: #5D5179;
 }
-
+input:invalid {
+  border: 2px solid red;
+}
 
 .imgUploaded {
   width: 30%;

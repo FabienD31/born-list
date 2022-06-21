@@ -8,6 +8,7 @@ import CategoryManager from './pages/crudCategory/CategoryManager.jsx';
 
 
 function App() {
+  
   return (
     <div className="App">
       <Menu />

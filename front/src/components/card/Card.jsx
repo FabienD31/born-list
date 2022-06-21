@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 
 
 const Card = (product) => {
+
+
+  
   return (
     <div className="card">
       <h2 className="name">{product.name}</h2>

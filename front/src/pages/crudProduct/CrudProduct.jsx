@@ -7,7 +7,7 @@ import axios from "axios";
 
 const CrudProduct = () => {
 const [newProduct, setNewProduct] = useState([]);
-const [selected,setSelected]=useState("");
+const [selected,setSelected]=useState(1);
 const [categories,setCategories]=useState([]);
 
   useEffect(() => {
@@ -18,58 +18,66 @@ const [categories,setCategories]=useState([]);
         }
       });
       setCategories(results.data)
+      console.log(results.data);
     }
     getCategories();
   }, []);
 
 const categorySelected =(e)=>{
-  let selected = e.target.value;
+  let selected = parseInt(e.target.value);
   setSelected(selected);
-  console.log(selected);
+  setNewProduct({...newProduct, Category_idCategory : selected});
 };
 
-const handleChange = (e, ) => {
+const handleChange = (e) => {
   setNewProduct({
     ...newProduct,
-    [e.target.name]: e.target.value, reserved:0, List_idList:1
+    [e.target.name]: e.target.value,
+    quantity:parseInt(e.target.value), 
+    price:parseFloat(e.target.value),
+    reserved:0, 
+    List_idList:1, 
+    Category_idCategory : selected
   });
 }
-const handleSubmit = (e) => {
+const handleSubmit = async (e) => {
   e.preventDefault();
-  setNewProduct({...newProduct, Category_idCategory : selected});
-  console.log(newProduct);
+  setNewProduct({...newProduct});
+  console.log(newProduct)
+  await axios.post("http://localhost:3001/products", newProduct);
 }
 
-  
   return (
     <div>
       <div className="btnCategory">
         <Link to="/categoryManager"><ButtonText value="Gestion des categories" callBack={()=>{}} /></Link>
       </div>
       <h1>Créer un produit</h1>
-      <div className="cardPositionnement">
+      <form onSubmit={handleSubmit} id="formAddProduct" className="cardPositionnement">
         <div className="cardCreate">
           <div className="twoInputLign">
-          <input className="inputStyle"  placeholder="Nom du produit" name="name" value={newProduct.name} onChange={handleChange}></input>
-          <select className="inputStyle" placeholder="Categorie" name="category" value={selected.name} onChange={categorySelected}>
+          <input required type="text" className="inputStyle"  placeholder="Nom du produit" name="name" value={newProduct.value} onChange={handleChange}></input>
+          <select className="inputStyle" placeholder="Categorie"  name="category" value={categories.value} onChange={categorySelected}>
           {categories.map((cat)=>{
             return (
-              <option key={cat.idCategory}>{cat.name}</option>
+              <option key={cat.idCategory} value={cat.idCategory}>{cat.name}</option>
             )
           })}
-          
           </select>
           </div>
-          <input className="inputStyle" placeholder="Lien d'image format https://" name="image" value={newProduct.image} onChange={handleChange}></input>
+          <input required type="url" pattern="https?://.+" className="inputStyle" placeholder="Lien d'image format https://" name="image" value={newProduct.value} onChange={handleChange}></input>
           {newProduct.image ? <img className="imgUploaded" alt="imgUploaded" value={newProduct.image} src={newProduct.image}></img> : <img className="imgUploaded" alt="imgUpload" src="https://cdn.futura-sciences.com/buildsv6/images/mediumoriginal/6/5/2/652a7adb1b_98148_01-intro-773.jpg"></img>}
-          <input className="inputStyle" placeholder="Lien vers le site" name="link" value={newProduct.link} onChange={handleChange}></input>
-          <input className="inputStyle" placeholder="Prix du produit" name="price" value={newProduct.price} onChange={handleChange}></input>
+          <input required type="url" pattern="https?://.+" className="inputStyle" placeholder="Lien vers le site" name="link" value={newProduct.value} onChange={handleChange}></input>
+          <div className="twoInputLign">
+          <input required type="decimal" pattern="[0-9]+(\.[0-9][0-9])?" className="inputStyle" placeholder="Prix du produit (12.60)" name="price" value={newProduct.value} onChange={handleChange}></input>
+          <input required type="number" className="inputStyle" placeholder="Quantité" name="quantity" value={newProduct.value} onChange={handleChange}></input>
+          </div>
           <div className="btnPositionnement">
-          <ButtonText value="Valider" callBack={handleSubmit} />
-          <ButtonText value="Supprimer" callBack={()=>{}} />
+          <ButtonText value="Valider" type="submit"  />
+          <ButtonText value="Supprimer" type="reset"  callBack={() => document.getElementById('formAddProduct').reset()}/>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   )
 }

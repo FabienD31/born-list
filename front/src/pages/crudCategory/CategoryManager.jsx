@@ -1,10 +1,28 @@
 import "./CategoryManager.css";
-import data from "./dataFake.js";
+//import data from "./dataFake.js";
 import Input from "../../components/input/Input.jsx";
 import ButtonIcon from "../../components/button/ButtonIcon.jsx";
 import ButtonText from "../../components/button/ButtonText.jsx";
+import {useState, useEffect} from "react";
+import axios from "axios";
+
 
 const CategoryManager = () => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    async function getCategories() {
+      const results = await axios.get('http://localhost:3001/categories/', {
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+      setCategories(results.data)
+      console.log(results.data);
+    }
+    getCategories();
+  }, []);
+
   return (
     <div>
       <div className="btnCategory">
@@ -18,7 +36,7 @@ const CategoryManager = () => {
             <th>Actions</th>
           </tr>
           {
-            data.map((item) => 
+            categories.map((item) => 
           <tr key={item.id} id="bodyCategory">
             <td><Input value={item.name} /></td>
             <td id="btnTable">
